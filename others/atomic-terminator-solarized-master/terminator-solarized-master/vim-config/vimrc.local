@@ -1,0 +1,69 @@
+" YCM自动完成
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+" enable ycm in comments
+let g:ycm_complete_in_comments = 1
+let g:indent_guides_auto_colors = 0
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>gg :TernDef <CR>
+
+" 设置转到定义处的快捷键为ALT + G，这个功能非常赞
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+
+" 树配置,绑定F5作为快捷键
+let NERDTreeChDirMode = 2
+let NERDTreeWinSize = 30
+map <F5>  :NERDTreeToggle<CR>
+" tab切换快捷键使用ALT+数字,只设置前5个
+map 1 1gt
+map 2 2gt
+map 3 3gt
+map 4 4gt
+map 5 5gt
+
+" js,html格式化工具
+noremap <F3> :call JsBeautify()<CR> :w<CR>
+noremap <F4> :call HtmlBeautify()<CR> :w<CR>
+
+" fix the ycm and snippets bugs
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
+"let g:ycm_key_list_select_completion = ['<C-Tab>', '<Down>'] 
+"let g:ycm_key_list_previous_completion = ['<C-S-Tab>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-Tab>'
+
+colorscheme monokai-chris
+set nospell
+set foldmethod=marker
+
+set history=200
+cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
+
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+set wrap
+set backupcopy=yes
+let g:mustache_abbreviations = 1
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')

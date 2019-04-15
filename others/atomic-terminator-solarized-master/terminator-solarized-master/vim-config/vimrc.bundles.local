@@ -1,0 +1,8 @@
+Bundle 'mxw/vim-jsx'
+Bundle 'ternjs/tern_for_vim'
+Bundle 'tomasr/molokai'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'sjl/gundo.vim'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'posva/vim-vue'
+Bundle 'udalov/kotlin-vim'
